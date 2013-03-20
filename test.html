@@ -23,6 +23,9 @@ $(function() {
 <textarea id="text">a
 
 c</textarea>
+<input type="text" id="pos">
+<button onclick="$('#pos').val($('#text').caret())">read</button>
+<button onclick="$('#text').caret($('#pos').val());$('#text').focus()">write</button>
 <div id="editable" contenteditable="true">ac</div>
 </body>
 </html>
