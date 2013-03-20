@@ -20,11 +20,22 @@
       //IE<9
       if (document.selection) {
         target.focus();
-        var range1 = document.selection.createRange();
-        var range2 = document.body.createTextRange();
-        range2.moveToElementText(target);
-        range2.setEndPoint('EndToEnd', range1);
-        return range2.text.length;
+        //contenteditable
+        if (target.contentEditable == 'true') {
+            var range1 = document.selection.createRange();
+            var range2 = document.body.createTextRange();
+            range2.moveToElementText(target);
+            range2.setEndPoint('EndToEnd', range1);
+            return range2.text.length;
+        }
+        //textarea
+        var pos = 0;
+        var range = target.createTextRange();
+        var range2 = document.selection.createRange().duplicate();
+        var bookmark = range2.getBookmark();
+        range.moveToBookmark(bookmark);
+        while (range.moveStart('character', -1) !== 0) pos++;
+        return pos;
       }
       //not supported
       return 0;
