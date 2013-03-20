@@ -8,8 +8,8 @@
         //contenteditable
         if (target.contentEditable == 'true') {
           target.focus();
-          var range1 = window.getSelection().getRangeAt(0);
-          var range2 = range1.cloneRange();
+          var range1 = window.getSelection().getRangeAt(0),
+              range2 = range1.cloneRange();
           range2.selectNodeContents(target);
           range2.setEnd(range1.endContainer, range1.endOffset);
           return range2.toString().length;
@@ -22,17 +22,17 @@
         target.focus();
         //contenteditable
         if (target.contentEditable == 'true') {
-            var range1 = document.selection.createRange();
-            var range2 = document.body.createTextRange();
+            var range1 = document.selection.createRange(),
+                range2 = document.body.createTextRange();
             range2.moveToElementText(target);
             range2.setEndPoint('EndToEnd', range1);
             return range2.text.length;
         }
         //textarea
-        var pos = 0;
-        var range = target.createTextRange();
-        var range2 = document.selection.createRange().duplicate();
-        var bookmark = range2.getBookmark();
+        var pos = 0,
+            range = target.createTextRange(),
+            range2 = document.selection.createRange().duplicate(),
+            bookmark = range2.getBookmark();
         range.moveToBookmark(bookmark);
         while (range.moveStart('character', -1) !== 0) pos++;
         return pos;
