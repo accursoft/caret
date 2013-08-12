@@ -1,12 +1,13 @@
 (function($) {
   $.fn.caret = function(pos) {
     var target = this[0];
+	var isContentEditable = target.contentEditable === 'true';
     //get
     if (arguments.length == 0) {
       //HTML5
       if (window.getSelection) {
         //contenteditable
-        if (target.contentEditable == 'true') {
+        if (isContentEditable) {
           target.focus();
           var range1 = window.getSelection().getRangeAt(0),
               range2 = range1.cloneRange();
@@ -21,7 +22,7 @@
       if (document.selection) {
         target.focus();
         //contenteditable
-        if (target.contentEditable == 'true') {
+        if (isContentEditable) {
             var range1 = document.selection.createRange(),
                 range2 = document.body.createTextRange();
             range2.moveToElementText(target);
@@ -44,7 +45,7 @@
     //HTML5
     if (window.getSelection) {
       //contenteditable
-      if (target.contentEditable == 'true') {
+      if (isContentEditable) {
         target.focus();
         window.getSelection().collapse(target.firstChild, pos);
       }
@@ -60,7 +61,7 @@
       range.collapse(true);
       range.select();
     }
-    if (target.contentEditable != 'true')
+    if (!isContentEditable)
       target.focus();
     return pos;
   }
