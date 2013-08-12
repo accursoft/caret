@@ -42,6 +42,8 @@
       return 0;
     }
     //set
+    if (pos == -1)
+      pos = this[isContentEditable? 'text' : 'val']().length;
     //HTML5
     if (window.getSelection) {
       //contenteditable
