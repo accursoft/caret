@@ -60,5 +60,7 @@
       range.collapse(true);
       range.select();
     }
+    if (target.contentEditable != 'true')
+      target.focus();
   }
 })(jQuery)
