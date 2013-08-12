@@ -62,5 +62,6 @@
     }
     if (target.contentEditable != 'true')
       target.focus();
+    return pos;
   }
 })(jQuery)
