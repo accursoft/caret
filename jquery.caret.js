@@ -58,7 +58,7 @@
     //IE<9
     else if (document.body.createTextRange) {
       var range = document.body.createTextRange();
-      range.moveToElementText(target)
+      range.moveToElementText(target);
       range.moveStart('character', pos);
       range.collapse(true);
       range.select();
