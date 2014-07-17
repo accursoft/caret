@@ -57,11 +57,17 @@
     }
     //IE<9
     else if (document.body.createTextRange) {
-      var range = document.body.createTextRange();
-      range.moveToElementText(target);
-      range.moveStart('character', pos);
-      range.collapse(true);
-      range.select();
+      if (isContentEditable) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(target);
+        range.moveStart('character', pos);
+        range.collapse(true);
+        range.select();
+      } else {
+        var range = target.createTextRange();
+        range.move('character', pos);
+        range.select();
+      }
     }
     if (!isContentEditable)
       target.focus();
