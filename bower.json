@@ -1,0 +1,13 @@
+{
+  "name": "jquery.caret",
+  "version": "1.3.2",
+  "main": "jquery.caret.js",
+  "ignore": [
+    "bower_components",
+    "node_modules",
+    "test.html"
+  ],
+  "dependencies": {
+    "jquery": ">=1.3"
+  }
+}
