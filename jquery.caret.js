@@ -38,6 +38,9 @@
         while (range.moveStart('character', -1) !== 0) pos++;
         return pos;
       }
+      // Addition for jsdom support
+      if (target.selectionStart)
+        return target.selectionStart;
       //not supported
       return 0;
     }
