@@ -13,7 +13,7 @@
     "name": "Gideon Sireling",
     "homepage": "http://www.accursoft.com/gideon-sireling.html"
   }],
-  "homepage": "http://code.accursoft.com/caret",
+  "homepage": "https://bitbucket.org/accursoft/caret",
   "dependencies": {
     "jquery": ">=1.3"
   }
