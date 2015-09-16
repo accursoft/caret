@@ -74,6 +74,6 @@
     }
     if (!isContentEditable)
       target.focus();
-    return pos;
+    return this;
   }
 })(jQuery);
