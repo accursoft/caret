@@ -10,7 +10,12 @@
           //contenteditable
           if (isContentEditable) {
             target.focus();
-            var range1 = window.getSelection().getRangeAt(0),
+            var selection = window.getSelection();
+            // Opera 12 check
+            if (!selection.rangeCount) {
+              return 0;
+            }
+            var range1 = selection.getRangeAt(0),
                 range2 = range1.cloneRange();
             range2.selectNodeContents(target);
             range2.setEnd(range1.endContainer, range1.endOffset);
