@@ -1,6 +1,6 @@
 {
   "name": "@accursoft/jquery-caret",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "Manipulate the caret's position in a text box or content-editable element",
   "browser": "jquery.caret.js",
   "author": {
@@ -10,7 +10,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "hg",
-    "url": "https://bitbucket.org/accursoft/caret"
+    "url": "https://github.com/accursoft/caret"
   },
   "files": [
     "jquery.caret.js"
